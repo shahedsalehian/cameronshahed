@@ -1,0 +1,541 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Cameron &amp; Shahed — Celebrating Our Wedding</title>
+        <style>
+            *,
+            *::before,
+            *::after {
+                box-sizing: border-box;
+                margin: 0;
+                padding: 0;
+            }
+
+            :root {
+                --cream: #faf9f7;
+                --white: #ffffff;
+                --stone: #8a8680;
+                --charcoal: #2c2b29;
+                --soft-black: #1a1917;
+                --accent: #b5a898;
+                --accent-light: #e8e2db;
+                --border: #e0dbd4;
+                --knot-teal: #006c8a;
+            }
+
+            html {
+                scroll-behavior: smooth;
+            }
+
+            body {
+                font-family: "Georgia", "Times New Roman", serif;
+                background: var(--cream);
+                color: var(--charcoal);
+                line-height: 1.7;
+            }
+
+            /* ── NAV ── */
+            nav {
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                z-index: 100;
+                display: flex;
+                justify-content: center;
+                gap: 2.5rem;
+                padding: 1.25rem 2rem;
+                background: rgba(250, 249, 247, 0.92);
+                backdrop-filter: blur(8px);
+                border-bottom: 1px solid var(--border);
+            }
+
+            nav a {
+                font-family: "Helvetica Neue", Arial, sans-serif;
+                font-size: 0.72rem;
+                letter-spacing: 0.18em;
+                text-transform: uppercase;
+                color: var(--stone);
+                text-decoration: none;
+                transition: color 0.2s;
+            }
+
+            nav a:hover {
+                color: var(--soft-black);
+            }
+
+            /* ── HERO ── */
+            .hero {
+                min-height: 100vh;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                padding: 6rem 2rem 4rem;
+                position: relative;
+                overflow: hidden;
+            }
+
+            .hero::before {
+                content: "";
+                position: absolute;
+                inset: 0;
+                background:
+                    radial-gradient(
+                        ellipse 60% 50% at 20% 80%,
+                        rgba(181, 168, 152, 0.12) 0%,
+                        transparent 70%
+                    ),
+                    radial-gradient(
+                        ellipse 50% 60% at 80% 20%,
+                        rgba(181, 168, 152, 0.1) 0%,
+                        transparent 70%
+                    );
+                pointer-events: none;
+            }
+
+            .hero-eyebrow {
+                font-family: "Helvetica Neue", Arial, sans-serif;
+                font-size: 0.68rem;
+                letter-spacing: 0.22em;
+                text-transform: uppercase;
+                color: var(--stone);
+                margin-bottom: 2rem;
+            }
+
+            .hero-names {
+                font-size: clamp(3.5rem, 10vw, 7rem);
+                font-weight: 400;
+                color: var(--soft-black);
+                line-height: 1.05;
+                letter-spacing: -0.01em;
+            }
+
+            .hero-names .ampersand {
+                display: block;
+                font-size: 0.6em;
+                color: var(--accent);
+                margin: 0.15em 0;
+            }
+
+            .hero-divider {
+                width: 48px;
+                height: 1px;
+                background: var(--accent);
+                margin: 2rem auto;
+            }
+
+            .hero-date {
+                font-family: "Helvetica Neue", Arial, sans-serif;
+                font-size: 0.85rem;
+                letter-spacing: 0.15em;
+                text-transform: uppercase;
+                color: var(--stone);
+            }
+
+            .hero-location {
+                margin-top: 0.5rem;
+                font-size: 1.05rem;
+                color: var(--stone);
+                font-style: italic;
+            }
+
+            .scroll-hint {
+                position: absolute;
+                bottom: 2.5rem;
+                left: 50%;
+                transform: translateX(-50%);
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 0.5rem;
+                opacity: 0.4;
+                animation: fadeBob 3s ease-in-out infinite;
+            }
+
+            .scroll-hint span {
+                font-family: "Helvetica Neue", Arial, sans-serif;
+                font-size: 0.62rem;
+                letter-spacing: 0.2em;
+                text-transform: uppercase;
+                color: var(--stone);
+            }
+
+            .scroll-hint svg {
+                color: var(--stone);
+            }
+
+            @keyframes fadeBob {
+                0%,
+                100% {
+                    transform: translateX(-50%) translateY(0);
+                    opacity: 0.4;
+                }
+                50% {
+                    transform: translateX(-50%) translateY(6px);
+                    opacity: 0.6;
+                }
+            }
+
+            /* ── SECTIONS ── */
+            section {
+                padding: 6rem 2rem;
+                max-width: 860px;
+                margin: 0 auto;
+            }
+
+            .section-label {
+                font-family: "Helvetica Neue", Arial, sans-serif;
+                font-size: 0.68rem;
+                letter-spacing: 0.22em;
+                text-transform: uppercase;
+                color: var(--accent);
+                display: block;
+                margin-bottom: 1.25rem;
+            }
+
+            .section-title {
+                font-size: clamp(1.8rem, 4vw, 2.6rem);
+                font-weight: 400;
+                color: var(--soft-black);
+                line-height: 1.2;
+                margin-bottom: 1.5rem;
+            }
+
+            .section-body {
+                font-size: 1.05rem;
+                color: var(--stone);
+                max-width: 560px;
+            }
+
+            /* ── SEPARATOR ── */
+            .sep {
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+                max-width: 860px;
+                margin: 0 auto;
+                padding: 0 2rem;
+            }
+
+            .sep::before,
+            .sep::after {
+                content: "";
+                flex: 1;
+                height: 1px;
+                background: var(--border);
+            }
+
+            .sep-ornament {
+                font-size: 1rem;
+                color: var(--accent);
+                line-height: 1;
+            }
+
+            /* ── DETAILS GRID ── */
+            .details-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 2.5rem;
+                margin-top: 3rem;
+            }
+
+            .detail-card {
+                border-top: 1px solid var(--border);
+                padding-top: 1.5rem;
+            }
+
+            .detail-card-label {
+                font-family: "Helvetica Neue", Arial, sans-serif;
+                font-size: 0.65rem;
+                letter-spacing: 0.2em;
+                text-transform: uppercase;
+                color: var(--accent);
+                margin-bottom: 0.6rem;
+            }
+
+            .detail-card-title {
+                font-size: 1.1rem;
+                color: var(--soft-black);
+                margin-bottom: 0.35rem;
+            }
+
+            .detail-card-body {
+                font-size: 0.9rem;
+                color: var(--stone);
+            }
+
+            /* ── REGISTRY SECTION ── */
+            #registry {
+                background: var(--white);
+                border-top: 1px solid var(--border);
+                border-bottom: 1px solid var(--border);
+                max-width: 100%;
+                padding: 6rem 2rem;
+            }
+
+            .registry-inner {
+                max-width: 860px;
+                margin: 0 auto;
+            }
+
+            .registry-card {
+                margin-top: 3rem;
+                border: 1px solid var(--border);
+                border-radius: 4px;
+                overflow: hidden;
+                display: flex;
+                flex-direction: column;
+            }
+
+            @media (min-width: 640px) {
+                .registry-card {
+                    flex-direction: row;
+                }
+            }
+
+            .registry-card-visual {
+                flex: 0 0 260px;
+                background: var(--knot-teal);
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                padding: 3rem 2rem;
+                gap: 1rem;
+            }
+
+            .knot-logo-text {
+                font-family: "Helvetica Neue", Arial, sans-serif;
+                font-size: 1.6rem;
+                font-weight: 300;
+                letter-spacing: 0.08em;
+                color: #ffffff;
+            }
+
+            .knot-logo-text strong {
+                font-weight: 700;
+            }
+
+            .knot-badge {
+                font-family: "Helvetica Neue", Arial, sans-serif;
+                font-size: 0.65rem;
+                letter-spacing: 0.2em;
+                text-transform: uppercase;
+                color: rgba(255, 255, 255, 0.65);
+                border: 1px solid rgba(255, 255, 255, 0.3);
+                padding: 0.3rem 0.75rem;
+                border-radius: 2px;
+            }
+
+            .registry-card-content {
+                flex: 1;
+                padding: 2.5rem;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                gap: 1rem;
+            }
+
+            .registry-card-title {
+                font-size: 1.5rem;
+                font-weight: 400;
+                color: var(--soft-black);
+            }
+
+            .registry-card-desc {
+                font-size: 0.95rem;
+                color: var(--stone);
+                line-height: 1.65;
+            }
+
+            .registry-card-items {
+                list-style: none;
+                display: flex;
+                flex-direction: column;
+                gap: 0.4rem;
+                margin: 0.25rem 0;
+            }
+
+            .registry-card-items li {
+                font-family: "Helvetica Neue", Arial, sans-serif;
+                font-size: 0.82rem;
+                color: var(--stone);
+                display: flex;
+                align-items: baseline;
+                gap: 0.5rem;
+            }
+
+            .registry-card-items li::before {
+                content: "—";
+                color: var(--accent);
+                font-size: 0.75rem;
+            }
+
+            .btn-primary {
+                display: inline-flex;
+                align-items: center;
+                gap: 0.5rem;
+                align-self: flex-start;
+                background: var(--soft-black);
+                color: #ffffff;
+                text-decoration: none;
+                font-family: "Helvetica Neue", Arial, sans-serif;
+                font-size: 0.72rem;
+                letter-spacing: 0.16em;
+                text-transform: uppercase;
+                padding: 0.85rem 1.75rem;
+                border-radius: 2px;
+                transition:
+                    background 0.2s,
+                    transform 0.15s;
+                margin-top: 0.5rem;
+            }
+
+            .btn-primary:hover {
+                background: var(--knot-teal);
+                transform: translateY(-1px);
+            }
+
+            .btn-primary svg {
+                flex-shrink: 0;
+            }
+
+            /* ── NOTE ── */
+            .registry-note {
+                margin-top: 2rem;
+                padding: 1.5rem;
+                background: var(--accent-light);
+                border-radius: 4px;
+                font-size: 0.88rem;
+                color: var(--stone);
+                line-height: 1.6;
+                font-style: italic;
+            }
+
+            /* ── FOOTER ── */
+            footer {
+                text-align: center;
+                padding: 4rem 2rem;
+                font-family: "Helvetica Neue", Arial, sans-serif;
+                font-size: 0.7rem;
+                letter-spacing: 0.14em;
+                text-transform: uppercase;
+                color: var(--accent);
+            }
+
+            /* ── MOBILE ── */
+            @media (max-width: 480px) {
+                nav {
+                    gap: 1.5rem;
+                    flex-wrap: wrap;
+                }
+                .hero-names {
+                    font-size: 3rem;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="hero">
+            <p class="hero-eyebrow">We're getting married!!!</p>
+            <h1 class="hero-names">
+                Cameron
+                <span class="ampersand">&amp;</span>
+                Shahed
+            </h1>
+            <div class="hero-divider"></div>
+            <p class="hero-date">October 03, 2026</p>
+            <div class="scroll-hint">
+                <span>Scroll</span>
+                <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 16 16"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                >
+                    <path d="M8 3v10M3 9l5 5 5-5" />
+                </svg>
+            </div>
+        </div>
+
+        <section id="our-story">
+            <span class="section-label">Our Story</span>
+            <h2 class="section-title"></h2>
+            <p class="section-body">
+                We have so much love for all of you. Thank you for understanding
+                that we will spend our wedding day with our immediate families
+                only. Spending quality time with everyone is so important to us,
+                which is why we want to dine with all of you shortly after our
+                wedding!
+            </p>
+            <p class="section-body" style="margin-top: 1rem">
+                Your presence at our celebration is the greatest gift - but for
+                those who have asked, we've shared a few ways to help us start
+                our next chapter together.
+            </p>
+        </section>
+
+        <div id="registry">
+            <div class="registry-inner">
+                <span class="section-label">Registry</span>
+                <h2 class="section-title">Cash fund</h2>
+                <p class="section-body">
+                    We have everything we need — the only thing missing is you.
+                    If you'd like to give a gift, contributions to our cash fund
+                    are the most meaningful way to help us start this new
+                    chapter.
+                </p>
+
+                <div class="registry-card">
+                    <!-- Content panel -->
+                    <div class="registry-card-content">
+                        <h3 class="registry-card-title">
+                            Our Honeymoon &amp; New Home Fund
+                        </h3>
+                        <p class="registry-card-desc">
+                            We're dreaming big for our first adventures as a
+                            married couple. Any contribution — large or small —
+                            goes directly toward experiences and milestones that
+                            will stay with us forever.
+                        </p>
+                        <ul class="registry-card-items">
+                            <li>Honeymoon travel &amp; experiences</li>
+                            <li>Our first home together</li>
+                        </ul>
+                        <a
+                            href="https://registry.theknot.com/shahed-salehian-cameron-amano-october-2026-ca/78858516"
+                            class="btn-primary"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Give a gift on The Knot
+                            <svg
+                                width="14"
+                                height="14"
+                                viewBox="0 0 14 14"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="1.5"
+                            >
+                                <path d="M2.5 7h9M8 3.5L11.5 7 8 10.5" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <p class="registry-note">
+                    Gifts are entirely optional and never expected. Celebrating
+                    with you is all we could ever ask for. If you do choose to
+                    give, The Knot processes contributions securely and any
+                    amount is deeply appreciated.
+                </p>
+            </div>
+        </div>
+    </body>
+</html>
